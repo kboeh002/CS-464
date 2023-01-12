@@ -61,11 +61,86 @@
 #### Passive Attacks
 * **Passive Attack:** attempts to learn or make use of information from the system, *but does not affect system resources* (eg. eavesdropping, monitoring transmissions) 
     * are difficult to detect
-    * prevent using encryption rather than worrying about detection
+    * Prevention- encryption rather than worrying about detection
 * Types of passive attacks:
     1. **Release of Message Contents:** attacker will monitors an unprotected communications  intercept it for sensitive information (eg.unencrypted email or telephone call) [[7](https://www.venafi.com/blog/what-active-attack-vs-passive-attack-using-encryption#:~:text=Release%20of%20message%20contents%3A%20In,intercept%20it%20for%20sensitive%20information.)]
     2. **Traffic Analysis:** hacker tries to access the same network and listen/capture and analyze your network traffic as it moves to and from the target systems [[8](https://www.netreo.com/blog/traffic-analysis-attack/)] [[9](https://www.techtarget.com/whatis/definition/passive-attack#:~:text=Passive%20attacks%20can%20take%20various,communication%20exchanged%20over%20the%20network.)]; use statistical methods to analyze and interpret the patterns of communication exchanged over the network [[9](https://www.techtarget.com/whatis/definition/passive-attack#:~:text=Passive%20attacks%20can%20take%20various,communication%20exchanged%20over%20the%20network.)]
         * eg. could observe and determine location/identity of hosts and observe frequency/length of message exchange
 #### Active Attacks
-#### Figure 1.3 Active Network Security Attacks Dissection 
+* **Active Attack:** Attempts to alter system resources or affect their operation; involves some modification of the data stream or creation of a false stream
+* Four types of active attacks:
+1. **Masquerade:** when entety pretends to be a different entity; impersonation of entity with those privilages
+2. **Replay:** passive capture of a data unit and its subsequent transmission to produce an unauthorized event (eg. taking recording and using it for voice authentication system)
+3. **Modification of Messages:** some *portion of a legitamate message* is altered or the message is delayed/reordered to produce an unauthorized effect
+    * Prevention- use hashing
+4. **Denial of Service (DoS):** prevents the normal use of management of communication facilities; commonly done with DDoS
+    * **Distributed Denial of Service (DDoS):** attack that overloads network with messages from numerous computers/machines to flood a targeted resource to degrade its performance [[10](https://www.sunnyvalley.io/docs/network-security-tutorials/dos-vs-ddos-attacks)]
+* Prevention - difficult to do absolutely due to variety of physical, software, and network vulnerabilities
+* Goal is to detect active attacks and recover from them rather than prevention
+### 1.2.5 Security Services
+* **Security Service:** a processing or communication service that is provided by a system to give a specific kind of protection to system resources (defined by RFC 2828)
+    * impement security policies that are implemented by security mechanisms
+* Five types of security services (each defined by X.800):
+1. **Authentication:** assurance that the communicating entity is the one that it claims to be
+    * **Peer Entity Authentication:** used in association with a logical connection to provide confidence in the identity of the entities connected
+    * **Data-Origin Authentication:** in a connectionless transfer provides assurance that the source received data is as claimed
+2. **Access Control:** prevention of unauthorized use of resources (eg. chmod, root) ie. ...
+    * service controls who have access to the source
+    * under what conditions access can occur
+    * what those accessing the resource are allowed to do
+3. **Data Confidentiality:** the protection of data from unauthorized disclosure
+    * **Connection Confidentiality:** the protection of *all* user data *on a connection*
+    * **Connectionless Confidentiality:** the protection of *all* user data *in a single data block*
+    * **Selective-Field Confidentiality:** the confidentiality of *selected* data fields within the user data *on a connection <u>or</u> a single data block*
+    * **Traffic-Flow Confidentiality:** the protection of the information that *might* be derived from *observation* of traffic flows
+4. **Data Integrity:** the assurance that data recieved are exactly as sent by an authorized entity
+    * **Connection Integrity with Recovery:** provides for the integrity of all user data on a connection and detects any modification, insertion, deletion, or replay of any data within an entire sequence, *with recovery attempted*
+    * **Connection Integrity without Recovery:** provides for the integrity of all user data on a connection purely through detection; detects any modification, insertion, deletion, or replay of any data within an entire sequence, *no recovery attempted*
+    * **Selective-Field Connection Integrity:** proveds for the integrity of selected fields within the user data of a data block transfered over a connection and takes the form of determination of whether the selected fields have been modified, inserted, deleted, or replayed
+    * **Connectionless Integrity:** provides for the integrity of a single connectionless data block and may take the form of detection of data modification; limited form of replay detection *may* be provided
+    * **Selective-Field Connectionless Integrity:** provides for the integrity of selected fields within a single connectionless data block; takes the form of determination fo whether or not selected fields have been modified 
+5. **Nonrepudiation:** Provides protection against denail by one of the entities involved in a communication of having participated in all or part of the communication
+    * **Nonrepudiation, Origin:** proof that the message was sent by the specified party
+    * **Nonrepudiation, Destination:** proof that the message was recieved by the specified party
+### 1.2.6 Security Mechanisms
+*(These are all defined in X.800)*
 
+* **Specific Security Mechanisms:** may be incorporated into the appropriate protocol layer in order to provide some of the OSI security services
+    * **Encipherment:** use of mathematical algorithms to transform data into a form that is not readily intelligable; transformation and recovery of data depend on an algorithm of $\ge$ 0 encryption keys
+    * **Digital Signature:** data appended to (or a cryptographic transformation of) a data unit that allows a recipient of the data unit to prove the source and integrity of the data unit and protect against forgery
+    * **Access Control:** a variety of mechanisms that enforce access rights to resources
+    * **Data Integrity:** a variety of mechanisms used to assure the integrity of a data unit or stream of data units
+    * **Authentication Exchange:** a mechanism inteded to ensure the identity of an entity by means of information exchange
+    * **Traffic Padding:** the insertion of bits into gaps in the data stream to frustrate traffic analysis attempts
+    * **Routing Control:** enables selection of particular physically secure routes for certain data and allows reouting changes, especially when a breach of security is suspected
+    * **Notarization:** the use of a trusted third party to assure certain properties of a data exchange
+* **Pervasive Security Mechanisms:** Mechanisms that are not specific to any particular OSI security service or protocol layer
+    * **Trusted Functionality:** that which is percieved ot be correct with respect to some criteria (eg. established by a security policy)
+    * **Security Label:** the marketing bound to a resource which may be a data unit that names or designates the security attributes of that resource
+    * **Event Detection:** detection of security-relevant events
+    * **Security Audit Trail:** data collected and potentially used to facilitate a security audit
+        * **Security Audit:** an independent review and examination of system records and activities
+    * **Security Recovery:** deals with the requests from mechanisms (eg. event handling and management functions) and takes recovery actions
+* [Table 1.3](https://drive.google.com/file/d/1CnVo4MIeeVfHibfbY1z2V7_RiwDXeWLj/view?usp=share_link) Relationship Between Security Services and Security Mechanisms *(Nice Summary)*
+-------------------------------------------------
+
+# Additional Resources
+[[1](https://en.wikipedia.org/wiki/OSI_model)] https://en.wikipedia.org/wiki/OSI_model
+
+[[2](https://www.networkworld.com/article/3239677/the-osi-model-explained-and-how-to-easily-remember-its-7-layers.html)] https://www.networkworld.com/article/3239677/the-osi-model-explained-and-how-to-easily-remember-its-7-layers.html
+
+[[3](https://en.wikipedia.org/wiki/Internet_Engineering_Task_Force)] https://en.wikipedia.org/wiki/Internet_Engineering_Task_Force
+
+[[4](https://www.techtarget.com/whatis/definition/IETF-Internet-Engineering-Task-Force)] https://www.techtarget.com/whatis/definition/IETF-Internet-Engineering-Task-Force
+
+[[5](https://www.iab.org/)] https://www.iab.org/
+
+[[6](https://www.techtarget.com/whatis/definition/Request-for-Comments-RFC#:~:text=Robert%20Sheldon-,What%20is%20a%20Request%20for%20Comments%20(RFC)%3F,routing%2C%20addressing%20and%20transport%20technologies.)] https://www.techtarget.com/whatis/definition/Request-for-Comments-RFC#:~:text=Robert%20Sheldon-,What%20is%20a%20Request%20for%20Comments%20(RFC)%3F,routing%2C%20addressing%20and%20transport%20technologies.
+
+[[7](https://www.venafi.com/blog/what-active-attack-vs-passive-attack-using-encryption#:~:text=Release%20of%20message%20contents%3A%20In,intercept%20it%20for%20sensitive%20information.)] https://www.venafi.com/blog/what-active-attack-vs-passive-attack-using-encryption#:~:text=Release%20of%20message%20contents%3A%20In,intercept%20it%20for%20sensitive%20information.
+
+[[8](https://www.netreo.com/blog/traffic-analysis-attack/)] https://www.netreo.com/blog/traffic-analysis-attack/
+
+[[9](https://www.techtarget.com/whatis/definition/passive-attack#:~:text=Passive%20attacks%20can%20take%20various,communication%20exchanged%20over%20the%20network.)] https://www.techtarget.com/whatis/definition/passive-attack#:~:text=Passive%20attacks%20can%20take%20various,communication%20exchanged%20over%20the%20network.
+
+[[10](https://www.sunnyvalley.io/docs/network-security-tutorials/dos-vs-ddos-attacks)] https://www.sunnyvalley.io/docs/network-security-tutorials/dos-vs-ddos-attacks
