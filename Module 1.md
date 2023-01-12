@@ -122,6 +122,39 @@
         * **Security Audit:** an independent review and examination of system records and activities
     * **Security Recovery:** deals with the requests from mechanisms (eg. event handling and management functions) and takes recovery actions
 * [Table 1.3](https://drive.google.com/file/d/1CnVo4MIeeVfHibfbY1z2V7_RiwDXeWLj/view?usp=share_link) Relationship Between Security Services and Security Mechanisms *(Nice Summary)*
+### 1.2.7 A Model for Network Security
+* All techniques for providing security have two components:
+1. Security-related transformation on the information being sent (eg. encryption of message)
+2. Some secret information shared by the two principals that is unknown to the opponent (eg. encryption key for the encryption to decrypt the message)
+* a trusted third party may be needed for this security
+* General model shows that there are four basic tasks in designing a particular security service
+    * [Figure 1.4](https://drive.google.com/file/d/1IG6VgveWJjcXakjE5dMGSpVzilnl0zw1/view?usp=share_link) Model for Network Security
+1. Design an algorithm for performing security-related transformation; algorithm should be such that an opponent cannot defeat its purpose
+2. Generate the secret information to be used with the algorithm
+3. Develop methods for distribution and sharing of the secret information
+4. Specify the protocol to be used by the two principals that makes use of the security algorithm and the secret information to achieve a particular security service
+### 1.2.8 Learning Check
+List three different main objectives/concepts for computer/network security.
+1. Confidentiality
+2. Integrity
+3. Availability
+
+What are the focuses of OSI security architecture?
+* Focusses on security attacks, mechanisms, and services
+
+List two types of Active Attacks.
+1. Masquerade
+2. Replay
+3. Modification of Messages
+4. DoS
+
+List five security mechanisms defined in X.800
+1. Authentication
+2. Access Control
+3. Data Confidentiality
+4. Data Integrity
+5. Nonrepudiation
+
 -------------------------------------------------
 
 # Additional Resources
